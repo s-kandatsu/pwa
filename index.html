@@ -1,20 +1,15 @@
 <html>
 	<header>
 		<title>test</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
-		<script>
-			Push.create('こんにちは！', {
-			　　body: '更新をお知らせします！',
-			　　icon: 'icon.png',
-			　　timeout: 8000, // 通知が消えるタイミング
-			　　vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
-			　　onClick: function() {
-			　　　　// 通知がクリックされた場合の設定
-			　　　　console.log(this);
-			　　}
-			});
-		</script>
 	</header>
+	<link rel="manifest" href="./manifest.json">
+	<link rel="manifest" href="manifest.webmanifest" />
+	<script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js"
+			integrity="sha384-VcI6S+HIsE80FVM1jgbd6WDFhzKYA0PecD/LcIyMQpT4fMJdijBh0I7Iblaacawc"
+			crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+	<script src="./main.js"></script>
 	<body>
 		<p>test!!!</p>
 	</body>
