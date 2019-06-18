@@ -1,13 +1,6 @@
 'use strict';
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js')
-             .then((registration) => {
-                 console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
-             })
-             .catch(console.error.bind(console));
-
-    // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAM_YeeyCq0iPtUDXJv7rv9Ek5mrwMp1LQ",
         authDomain: "pwa-pushdemo-94bb7.firebaseapp.com",
@@ -17,13 +10,14 @@ if ('serviceWorker' in navigator) {
         messagingSenderId: "10453373238",
         appId: "1:10453373238:web:68d979d2e6d990f8"
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
     const messaging = firebase.messaging();
 
-    navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    navigator.serviceWorker.register('./service-worker.js')
     .then((registration) => {
+        console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+
         messaging.useServiceWorker(registration);
         messaging.requestPermission()
         .then(() => {
