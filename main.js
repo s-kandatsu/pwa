@@ -6,7 +6,9 @@ if ('serviceWorker' in navigator) {
                  console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
              })
              .catch(console.error.bind(console));
+}
 
+if ('serviceWorker' in navigator) {
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAM_YeeyCq0iPtUDXJv7rv9Ek5mrwMp1LQ",
