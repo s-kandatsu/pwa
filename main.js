@@ -28,7 +28,9 @@ if ('serviceWorker' in navigator) {
     }).then((currentToken) => {
         if (currentToken) {
             // プッシュ通知を受信し，表示できる状態
-            console.log('permission OK');
+            console.log(currentToken);
+        } else {
+            console.log('permission NG');
         }
     }).catch((err) => {
         console.log('Error Occurred.');
