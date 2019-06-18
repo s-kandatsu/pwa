@@ -6,9 +6,7 @@ if ('serviceWorker' in navigator) {
                  console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
              })
              .catch(console.error.bind(console));
-}
 
-if ('serviceWorker' in FBnavigator) {
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAM_YeeyCq0iPtUDXJv7rv9Ek5mrwMp1LQ",
@@ -24,7 +22,7 @@ if ('serviceWorker' in FBnavigator) {
 
     const messaging = firebase.messaging();
 
-    FBnavigator.serviceWorker.register('./firebase-messaging-sw.js')
+    navigator.serviceWorker.register('./firebase-messaging-sw.js')
     .then((registration) => {
         messaging.useServiceWorker(registration);
         messaging.requestPermission()
