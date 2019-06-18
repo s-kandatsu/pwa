@@ -21,19 +21,24 @@ if ('serviceWorker' in navigator) {
     firebase.initializeApp(firebaseConfig);
 
     const messaging = firebase.messaging();
-    messaging.requestPermission()
-    .then(() => {
-        console.log('Have permission')
-        return messaging.getToken() //ユーザにプッシュ通知を表示する権限の許可を表示
-    }).then((currentToken) => {
-        if (currentToken) {
-            // プッシュ通知を受信し，表示できる状態
-            console.log(currentToken);
-        } else {
-            console.log('permission NG');
-        }
-    }).catch((err) => {
-        console.log('Error Occurred.');
-    })
+
+    navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    .then((registration) => {
+        messaging.useServiceWorker(registration);
+        messaging.requestPermission()
+        .then(() => {
+            console.log('Have permission')
+            return messaging.getToken() //ユーザにプッシュ通知を表示する権限の許可を表示
+        }).then((currentToken) => {
+            if (currentToken) {
+                // プッシュ通知を受信し，表示できる状態
+                console.log(currentToken);
+            } else {
+                console.log('permission NG');
+            }
+        }).catch((err) => {
+            console.log('Error Occurred.');
+        })
+    });
 
 }
