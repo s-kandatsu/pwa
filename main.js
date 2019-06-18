@@ -8,7 +8,7 @@ if ('serviceWorker' in navigator) {
              .catch(console.error.bind(console));
 }
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in FBnavigator) {
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAM_YeeyCq0iPtUDXJv7rv9Ek5mrwMp1LQ",
@@ -24,7 +24,7 @@ if ('serviceWorker' in navigator) {
 
     const messaging = firebase.messaging();
 
-    navigator.serviceWorker.register('./firebase-messaging-sw.js')
+    FBnavigator.serviceWorker.register('./firebase-messaging-sw.js')
     .then((registration) => {
         messaging.useServiceWorker(registration);
         messaging.requestPermission()
