@@ -12,28 +12,32 @@ if ('serviceWorker' in navigator) {
     };
     firebase.initializeApp(firebaseConfig);
 
-    const messaging = firebase.messaging();
-
     navigator.serviceWorker.register('./service-worker.js')
     .then((registration) => {
         console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
 
-        messaging.useServiceWorker(registration);
-        messaging.requestPermission()
-        .then(() => {
-            console.log('Have permission')
-            return messaging.getToken() //ユーザにプッシュ通知を表示する権限の許可を表示
-        }).then((currentToken) => {
-            if (currentToken) {
-                // プッシュ通知を受信し，表示できる状態
-                console.log(currentToken);
-                document.write(currentToken);
-            } else {
-                console.log('permission NG');
-            }
-        }).catch((err) => {
-            console.log('Error Occurred.');
-        })
+        if (firebase.messaging.isSupported()) {
+            const messaging = firebase.messaging();
+
+            messaging.useServiceWorker(registration);
+            messaging.requestPermission()
+            .then(() => {
+                console.log('Have permission')
+                return messaging.getToken() //ユーザにプッシュ通知を表示する権限の許可を表示
+            }).then((currentToken) => {
+                if (currentToken) {
+                    // プッシュ通知を受信し，表示できる状態
+                    console.log(currentToken);
+                    document.write(currentToken);
+                } else {
+                    console.log('permission NG');
+                }
+            }).catch((err) => {
+                console.log('Error Occurred.');
+            })
+        } else {
+            console.log("This browser does not support 'FireBase Messaging'.");
+        }
     });
 
 }
