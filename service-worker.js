@@ -78,6 +78,9 @@ importScripts('https://www.gstatic.com/firebasejs/6.1.0/firebase-messaging.js');
 self.addEventListener('push', (event) => {
     console.info('push', event);
 
+    importScripts('https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js');
+    importScripts('https://www.gstatic.com/firebasejs/6.1.0/firebase-messaging.js');
+
     // FireBase
     var firebaseConfig = {
         apiKey: "AIzaSyAM_YeeyCq0iPtUDXJv7rv9Ek5mrwMp1LQ",

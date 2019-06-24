@@ -1,1 +1,1 @@
-{"virtualbox":{"/usr/share/nginx/html":{"guestpath":"/usr/share/nginx/html","hostpath":"C:/Users/kandatsu/git/private/test","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/kandatsu/git/private/test","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/usr/share/nginx/html/pwa":{"guestpath":"/usr/share/nginx/html/pwa","hostpath":"C:/Users/kandatsu/git/test_pwa","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/kandatsu/git/test_pwa","disabled":false,"__vagrantfile":true}}}
